@@ -456,6 +456,7 @@ export default class Autocomplete extends Component {
     const wrapperClassName = `${cssNamespace}__wrapper`
 
     const inputClassName = `${cssNamespace}__input`
+    const statusClassName = `${cssNamespace}__status`
     const componentIsFocused = focused !== null
     const inputModifierFocused = componentIsFocused ? ` ${inputClassName}--focused` : ''
     const inputModifierType = this.props.showAllValues ? ` ${inputClassName}--show-all-values` : ` ${inputClassName}--default`
@@ -509,6 +510,7 @@ export default class Autocomplete extends Component {
           tNoResults={tStatusNoResults}
           tSelectedOption={tStatusSelectedOption}
           tResults={tStatusResults}
+          className={statusClassName}
         />
 
         {hintValue && (
