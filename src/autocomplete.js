@@ -242,7 +242,27 @@ export default class Autocomplete extends Component {
   }
 
   handleInputClick (event) {
-    this.handleInputChange(event)
+    if (this.props.selectElement) {
+      if (this.state.menuOpen === false) {
+        this.props.source('', (options) => {
+          let currentSelectionIndex = options.indexOf(this.state.query)
+
+          this.setState({
+            menuOpen: true,
+            options,
+            focused: currentSelectionIndex,
+            selected: currentSelectionIndex,
+            hovered: null
+          })
+        })
+      } else {
+        this.handleComponentBlur({
+          menuOpen: false
+        }, true)
+      }
+    } else {
+      this.handleInputChange(event)
+    }
   }
 
   handleInputFocus (event) {
