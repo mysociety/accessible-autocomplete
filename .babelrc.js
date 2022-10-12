@@ -2,7 +2,7 @@ module.exports = {
   presets: [
     ['@babel/preset-env', {
       shippedProposals: true,
-      useBuiltIns: 'usage',
+//      useBuiltIns: 'usage',
       loose: true
     }]
   ],
@@ -12,9 +12,9 @@ module.exports = {
     ['@babel/plugin-transform-react-jsx', { pragma: 'h' }],
 
     // Improve legacy IE compatibility
-    ['@babel/plugin-transform-modules-commonjs', { loose: true }],
-    '@babel/plugin-transform-member-expression-literals',
-    '@babel/plugin-transform-property-literals'
+//    ['@babel/plugin-transform-modules-commonjs', { loose: true }],
+//    '@babel/plugin-transform-member-expression-literals',
+//    '@babel/plugin-transform-property-literals'
   ],
   env: {
     test: {

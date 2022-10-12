@@ -25,21 +25,7 @@ const config = {
     minimizer: [new UglifyJsPlugin({
       cache: true,
       parallel: true,
-      sourceMap: true,
-      uglifyOptions: {
-        compress: {
-          negate_iife: false,
-          properties: false,
-          ie8: true
-        },
-        mangle: {
-          ie8: true
-        },
-        output: {
-          comments: false,
-          ie8: true
-        }
-      }
+      sourceMap: true
     })]
   },
 
