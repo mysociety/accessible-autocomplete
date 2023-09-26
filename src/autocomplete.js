@@ -479,9 +479,13 @@ export default class Autocomplete extends Component {
       : ''
 
     const assistiveHintID = id + '__assistiveHint'
-    const ariaDescribedProp = (ariaHint) ? {
-      'aria-describedby': assistiveHintID
-    } : null
+    const ariaProps = {
+      'aria-describedby': ariaHint ? assistiveHintID : null,
+      'aria-expanded': menuOpen ? 'true' : 'false',
+      'aria-activedescendant': optionFocused ? `${id}__option--${focused}` : false,
+      'aria-owns': `${id}__listbox`,
+      'aria-autocomplete': (this.hasAutoselect()) ? 'both' : 'list'
+    }
 
     let dropdownArrow
 
@@ -518,11 +522,7 @@ export default class Autocomplete extends Component {
         )}
 
         <input
-          aria-expanded={menuOpen ? 'true' : 'false'}
-          aria-activedescendant={optionFocused ? `${id}__option--${focused}` : false}
-          aria-owns={`${id}__listbox`}
-          aria-autocomplete={(this.hasAutoselect()) ? 'both' : 'list'}
-          {...ariaDescribedProp}
+          {...ariaProps}
           autoComplete='off'
           className={`${inputClassName}${inputModifierFocused}${inputModifierType}`}
           id={id}
